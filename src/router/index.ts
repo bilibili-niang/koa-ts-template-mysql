@@ -1,3 +1,4 @@
+// 自动导出所有的路由
 import fs from 'fs'
 import path from 'path'
 import Router from 'koa-router'
