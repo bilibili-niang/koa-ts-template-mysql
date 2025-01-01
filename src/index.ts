@@ -8,13 +8,13 @@ require('dotenv').config()
 
 const app = new Koa()
 
-
 app
   .use(router.routes())
-// .use(router.allowedMethods())
+  .use(router.allowedMethods())
 
+// 非法路由
 app.use(async ctx => {
-  ctx.body = 'Hello World'
+  ctx.body = '你已到达未知领域,请尽快返航'
 })
 
 const AppDataSource = new DataSource({

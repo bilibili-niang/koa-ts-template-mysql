@@ -1,15 +1,16 @@
-import { Entity, Column, PrimaryGeneratedColumn } from 'typeorm'
+// 实体
+import { Column, Entity, PrimaryGeneratedColumn } from 'typeorm'
 
 @Entity()
 export class User {
   @PrimaryGeneratedColumn()
-  id!: number;
+  id!: number
 
   @Column()
-  name!: string;
+  name!: string
 
   @Column({ select: false })
-  password!: string;
+  password!: string
 
   @Column()
   email!: string
