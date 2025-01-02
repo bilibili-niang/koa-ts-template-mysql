@@ -2,13 +2,15 @@ import Koa from 'koa'
 import { DataSource } from 'typeorm'
 import { mysqlLogin } from './db/config'
 import router from './router'
-// const router = require('./router')
+import swaggerDec from './swaggerDec/index'
 
 require('dotenv').config()
 
 const app = new Koa()
 
 app
+  .use(swaggerDec.routes())
+  .use(swaggerDec.allowedMethods())
   .use(router.routes())
   .use(router.allowedMethods())
 

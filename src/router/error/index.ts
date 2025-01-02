@@ -1,15 +1,11 @@
 import Router from 'koa-router'
-import { Context } from 'koa'
-import { Response } from '../../type'
+import TestController from '../../controllers/test'
 
 const router = new Router()
-router.all('/', async (ctx: Context) => {
-  ctx.body = Response({
-    code: 200,
-    msg: '你已到达未知领域,请尽快返航',
-    success: false,
-    data: {}
-  })
-})
+
+console.log('TestController------------------')
+console.log(TestController)
+
+router.all('/', TestController.getTest)
 
 export default router
