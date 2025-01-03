@@ -1,8 +1,9 @@
 import Router from 'koa-router'
 import UserController from '../../controllers/user'
 
-// const router = new Router()
 const router = new Router({ prefix: '/user' })
-router.get('/info', UserController.listUsers)
+router.get('/list', UserController.listUsers)
+
+router.post('/create', UserController.createUser)
 
 export default router

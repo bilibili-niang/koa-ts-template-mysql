@@ -1,6 +1,9 @@
 // tsconfig.json
 {
   "compilerOptions": {
+    "typeRoots": [
+      "./node_modules/@types"
+    ],
     "target": "ES2015",
     // 目标js版本
     "experimentalDecorators": true,
