@@ -6,10 +6,10 @@ import { ResponseType } from './type'
 * @param {Object} target
 * @return {Object}
 * */
-export const Response = (target: ResponseType) => {
+export const Response = (target: Partial<ResponseType>) => {
   return Object.assign({
     code: 200,
-    success: false,
+    success: true,
     msg: '',
     data: {}
   }, target)

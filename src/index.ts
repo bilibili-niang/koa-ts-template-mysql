@@ -2,13 +2,21 @@ import Koa from 'koa'
 import { DataSource } from 'typeorm'
 import { mysqlLogin } from './db/config'
 import router from './router'
-// const router = require('./router')
+import swaggerDec from './swaggerDec/index'
+import bodyParser from 'koa-bodyparser'
 
 require('dotenv').config()
 
 const app = new Koa()
 
 app
+  .use(bodyParser())
+  .use(async (ctx, next) => {
+    ctx.dataSource = AppDataSource
+    await next()
+  })
+  .use(swaggerDec.routes())
+  .use(swaggerDec.allowedMethods())
   .use(router.routes())
   .use(router.allowedMethods())
 
@@ -27,9 +35,10 @@ AppDataSource.initialize()
     console.log('Data Source has been initialized!')
     app.use(router.routes()).use(router.allowedMethods())
     app.listen(process.env.PORT)
+    console.log('数据库连接初始化成功')
   })
   .catch((err) => {
-    console.error('Error during Data Source initialization', err)
+    console.error('数据库连接初始化失败', err)
   })
 export { AppDataSource }
 

@@ -1,12 +1,15 @@
 import { User } from '../entity/user'
+import { MarkdownFile } from '../entity/markdown'
+
+require('dotenv').config()
 
 export const mysqlLogin = {
-  host: 'localhost', // 数据库地址
-  port: 3306, // 端口
-  username: 'root',
-  password: '123456',
-  database: 'markdownfile',
-  entities: [User],
+  host: process.env.DATABASE_HOST,
+  port: Number(process.env.DATABASE_PORT),
+  username: process.env.DATABASE_USER,
+  password: process.env.DATABASE_PASSWORD,
+  database: process.env.DATABASE_NAME,
+  entities: [User, MarkdownFile],
   synchronize: true,
-  logging: false
+  logging: true
 }

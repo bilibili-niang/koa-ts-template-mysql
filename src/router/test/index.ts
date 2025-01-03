@@ -1,8 +1,8 @@
 import Router from 'koa-router'
 import TestController from '../../controllers/test'
 
-const router = new Router()
+const router = new Router({ prefix: '/test' })
 
-router.all('/', TestController.getTest)
+router.get('/info', TestController.getTest)
 
 export default router
