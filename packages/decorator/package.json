@@ -1,0 +1,37 @@
+{
+  "name": "@lib/decorator",
+  "module": "index.ts",
+  "version": "2.2.1",
+  "main": "./index.js",
+  "scripts": {
+    "dev": "bun example/main.ts",
+    "build": "rm -rf dist && tsc",
+    "test": "bun test --coverage",
+    "client:typegen": "typegen http://localhost:3000/swagger-json > example/client/openapi.d.ts",
+    "client:test": "bun example/client/index.ts",
+    "next": "npm run build && npm publish --registry=https://registry.npmjs.org --tag next"
+  },
+  "devDependencies": {
+    "@koa/cors": "^4.0.0",
+    "@types/deepmerge": "^2.2.0",
+    "@types/koa": "^2.13.8",
+    "@types/koa__cors": "^4.0.0",
+    "axios": "^1.5.0",
+    "@koa/bodyparser": "^5.0.0",
+    "bun-types": "latest",
+    "openapi-client-axios": "^7.3.3",
+    "openapi-client-axios-typegen": "^7.3.2",
+    "tsx": "^3.12.8",
+    "typescript": "^5.2.2"
+  },
+  "dependencies": {
+    "@asteasolutions/zod-to-openapi": "^5.5.0",
+    "@koa/router": "^12.0.0",
+    "@types/koa__router": "^12.0.0",
+    "deepmerge": "^4.3.1",
+    "is-type-of": "^2.0.1",
+    "koa": "^2.14.2",
+    "zod": "^3.22.2"
+  }
+}
+

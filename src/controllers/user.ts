@@ -1,7 +1,6 @@
 import { Context } from 'koa'
 import { body, query, request, summary, swaggerClass, swaggerProperty, tags } from 'koa-swagger-decorator'
 import { Response } from '../type'
-// import { mysqlLogin } from '../db/config'
 import { User } from '../entity/user'
 
 require('dotenv').config()
@@ -9,8 +8,8 @@ require('dotenv').config()
 
 @swaggerClass()
 export class userInfo {
-  @swaggerProperty({ type: 'string', required: true }) email: string = ''
-  @swaggerProperty({ type: 'string', required: true }) name: string = ''
+  @swaggerProperty({ type: 'string', required: true, description: '用户邮箱' }) email: string = ''
+  @swaggerProperty({ type: 'string', required: true, description: '用户名' }) name: string = ''
   @swaggerProperty({ type: 'string', required: true, description: '用户密码' }) password: string = ''
 }
 

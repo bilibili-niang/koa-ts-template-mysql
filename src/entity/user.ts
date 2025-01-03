@@ -8,7 +8,7 @@ import {
   VersionColumn
 } from 'typeorm'
 
-@Entity()
+@Entity('markdown_users')
 export class User {
   // 指定生成uuid
   @PrimaryGeneratedColumn('uuid')

@@ -1,6 +1,6 @@
 import { Column, CreateDateColumn, DeleteDateColumn, Entity, PrimaryGeneratedColumn, UpdateDateColumn, } from 'typeorm'
 
-@Entity('markdown_files') // 如果表名不是复数形式，这里应使用正确的表名
+@Entity('markdownfiles')
 export class MarkdownFile {
   @PrimaryGeneratedColumn()
   id!: number
